@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>天天理财随心购</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="style/mycss.css">
+	<script type="text/javascript" src='mjs/jquery.min.js'></script>
+	<script type="text/javascript" src='mjs/main.js'></script>
+</head>
+<body>
+	<div class="header clearfix">
+	    <img src="img/gbanner.jpg">
+	    <div class='showpanle'>
+	        <div class='artdata'>
+			 	<p class="descp">&nbsp;活动简介 》</p>
+			 	<div class='yearrate'>
+			 	    <span class='ratenum'><i>6.00</i>%</span>
+			 	    <span class='jiaxi'>+0.00%</span>
+			 	</div>
+			 	<p class='earnings'>预计到期收益（元）<br><strong>16.44</strong></p>
+		 	</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="tzpanle">
+			<div class='arrow-up'></div>
+			<p class='iwilldo'>我要投资（元）</p>
+			<div class='tzquota'>
+				<input type="number" name="tzquota" value='10000'><i></i>
+			</div>
+			<div class="myreserve">0</div>
+			<div class="record"><span class="red" id="red">10</span>天</div>
+			<div class="all" id="box"></div>
+			<div id='storemoney' class='btnbg'>立即投资</div>
+			<p class='pre_user'><span>135****2399</span>,已登录</p>
+		</div>
+	</div>
+
+    <!-- 登录弹窗 -->
+	<div class='loginpanel'>
+		<div class='loginbox'>
+			<div class='close'>+</div>
+			<p class='ctitle'>登录</p>
+            <form name='login'>
+            	<input type="tel" name="username" placeholder="请输入您的手机号" maxlength="11">
+            	<input type="password" name="userpsd" placeholder="请输入天天理财登录密码">
+            </form>
+            <a href="javascript:;" class='confirmgo'>登录</a>
+		</div>
+	</div>
+    
+    <!-- 确认预约 -->
+    <div class="confirmpanel">
+    	<div class='yuyuebox'>
+    		<div class='yuyuetit'><span>确认预约信息</span><div class='close'>+</div></div>
+    		<div class="parameter">
+    			<dl>
+    				<dt>投资金额：</dt>
+    				<dd><span class='quota'></span>元</dd>
+    			</dl>
+    			<dl>
+    				<dt>年化收益：</dt>
+    				<dd><span class='interestrate'></span><i class='addrate'></i></dd>
+    			</dl>
+    		</div>
+    		<div class='income'>
+    			<dl class="clearfix">
+    				<dt>理财期限：</dt><dd><span class='sumdays'></span>天</dd>
+    			</dl>
+    			<dl class="clearfix">
+    				<dt>预期到期收益：</dt><dd><span class='gainval'></span>元</dd>
+    			</dl>
+    		</div>
+    		<p class='yytime'>申请日期：<time class='applytime'></time></p>
+    		<p class='prompt'>*预约成功后请保持手机畅通<br>我们将在24小时之内与您联系</p>
+    		<div class='lookover btnbg confirmyy'>立即预约</div>
+    	</div>
+    </div>
+
+	<!-- 预约成功 -->
+	<div class="reservepanel">
+		<div class="reservebox">
+			<div class='close'>+</div>
+			<img src="img/reserve.jpg">
+			<p class='succmsg'>预约成功!</p>
+            <p class='prompt'>*请保持手机畅通<br>我们将在24小时之内与您联系</p>
+            <div class='lookover btnbg seemyse'>查看我的预约</div>
+		</div>
+	</div>
+
+	<!-- 我的预约 -->
+	<div class="myreservepanel">
+	    <div class="overbox">
+
+    	</div>
+	</div>
+
+	<!-- 服务简介 -->
+	<div class="synopsispanel clearfix">
+		<div class="synopsis">
+			<div class='close'>+</div>
+			<img src="img/synopsis.png" class='synoptit'>
+			<p class='synopinfo'>“天天随心购”服务的主要目的是为天天理财用户提供除常规整月产品外，更多样化的可选产品定制服务。<br>1. 用户可以根据实际资金和时间的配比使用情况，通过预约的方式，购买30天以上任意期限的理财产品（有最低起投标准）；<br>2. 参与线上活动时，因资金情况无法在活动期间内购买的用户，可在活动期间预约线上活动的理财产品，一周内购买可享受同等的活动福利。</p>
+			<img src="img/summary01.jpg" class='summarypic01'>
+			<img src="img/summary02.jpg" class='summarypic02'>
+			<p class='pinfo'>在线上标准整月产品收益下，每增加<b>10天</b>，收益增加<b>0.2%</b>。</p>
+			<img src="img/summary02.jpg" class='summarypic03'>
+			<p class='pinfo'>通过“天天随心购”预约界面提交购买标的信息，由客服电话回访确认。</p>
+			<p class='actbq'>
+			    <b>天天理财客服热线：400-900-7767</b><br>
+			    <b>官方QQ群 ：479134390</b><br>
+			    <b>天天理财官微：微信搜索“天天财富官微”</b>
+			</p>
+		</div>
+	</div>
+</body>
+<script>
+	function HtmlFont(pagewidth){
+		var oWidth = document.documentElement.clientWidth || document.body.clientWidth,
+		    obHtml = document.getElementsByTagName('html')[0];
+		oWidth = Math.min(pagewidth,oWidth);    
+		var FontSize = (oWidth/pagewidth)*100;
+		obHtml.style.fontSize = FontSize+'px';
+	}
+	HtmlFont(750);
+/*	window.onresize = function(){
+		HtmlFont(750);
+        var CanvasNode = document.getElementById('Scaleplate');
+        CanvasNode.parentNode.removeChild(CanvasNode);
+        Scaleplate(
+			{
+				container : 'box',
+				width : document.getElementById('box').offsetWidth,
+				height:50,
+				background : '#fff',
+				start : 10,
+				end : 360,
+				def : 10,
+				unit : 6.3,
+				scaleplate : {
+					color:'#b9b9b9',
+					fontcolor:'#36342c',
+					fontfamily:'Microsoft Yahei',
+					width : 1
+				}
+			},
+			over
+		);
+	}*/
+
+	Scaleplate(
+		{
+			container : 'box',
+			width : document.getElementById('box').offsetWidth,
+			height:50,
+			background : '#fff',
+			start : 10,
+			end : 360,
+			def : 10,
+			unit : 6.3,
+			scaleplate : {
+				color:'#b9b9b9',
+				fontcolor:'#36342c',
+				fontfamily:'Microsoft Yahei',
+				width : 1
+			}
+		},
+		over
+	);
+
+	var ShowVale = document.getElementById('red'),
+        RateNum = document.querySelector('.ratenum').getElementsByTagName('i')[0],
+        RateJia = document.querySelector('.jiaxi'),
+        GainNum = document.querySelector('.earnings').getElementsByTagName('strong')[0],
+        tzinput = document.getElementsByName('tzquota')[0],
+        Mygain = 0, MyRate = 8, MyJiaxi = 0, BenJin = tzinput.value;
+    tzinput.onkeyup = function(){
+    	BenJin = tzinput.value;
+    	over(Number(ShowVale.innerText));console.log(BenJin);
+    }
+    var ConArr = [
+            [10, 0.5, 6, 0],
+            [30, 0.3, 7, 1],
+            [60, 0.3, 8, 1],
+            [90, 0.1, 9, 1],
+            [180, 0.1, 10, 1],
+            [360, 0, 12, 1]
+        ];
+
+	function over(now){
+		// console.log(now);
+	    ShowVale.innerText = now;
+    	for(var i=0; i<ConArr.length; i++){
+        	if(now >= ConArr[i][0] ){
+        		MyRate = ConArr[i][2];
+        		MyJiaxi = Math.floor((now-ConArr[i][0])/10)*ConArr[i][1]+ConArr[i][3];
+        	}
+        }
+        RateNum.innerText = MyRate>=10 ? MyRate+'.0' : MyRate+'.00';
+	    RateJia.innerText = '+'+MyJiaxi.toFixed(2)+'%';
+        GainNum.innerText = (BenJin/365*now*(MyRate+MyJiaxi)/100).toFixed(2);
+	}
+</script>
+</html>

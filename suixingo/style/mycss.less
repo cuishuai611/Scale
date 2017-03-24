@@ -1,0 +1,178 @@
+@white:#fff;
+@gray:#8e8d8d;
+@orange:#fe9704;
+@pink:#f54c6c;
+@lightgrey:#dadada;
+@sgray:#878787;
+@black:#434343;
+@center:center;
+@charset 'utf-8';
+*{margin:0;padding:0;font-family:"microsoft yahei","Helvetica";}
+body{max-width:750px;margin:0 auto;position:relative;}
+img{border:none;width:100%;display:block;}
+i{font-style:normal;}
+a{text-decoration:none;}
+a:focus,input:focus,div:focus{outline:none;}
+input{font-family:"microsoft Yahei","Helvetica";border:none;}
+.clearfix::after{clear:both;content:'';display:block;visibility:hidden;}
+.mylayer{color:#fff;opacity:0;padding:.25rem .33rem;font-size:.24rem;background:rgba(0,0,0,0.5);border-radius:.1rem;position:fixed;top:50%;left:50%;z-index:999;transition:opacity 0.2s linear;z-index:9999;}
+
+
+.header{position:relative;}
+.showpanle{
+    background:-moz-linear-gradient(top,#65ddfb,#df91f9);
+	background:-webkit-linear-gradient(top,#65ddfb,#df91f9);
+	background:linear-gradient(top,#65ddfb,#df91f9);
+    border-radius:50%;box-shadow:0 0 0 .2rem rgba(228,249,254,0.4);height:3.66rem;width:3.66rem;
+    position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:3.6rem;z-index: 2;
+    .artdata{
+    	background-color:@white;border-radius:50%;height:3.54rem;width:3.54rem;margin:0.06rem;position:absolute;
+
+	    p{text-align:@center;}
+	    .descp{
+	    	background:-moz-linear-gradient(left,#dd92f9,#69e5fb);
+	    	background:-webkit-linear-gradient(left,#dd92f9,#69e5fb);
+	    	background:linear-gradient(left,#dd92f9,#69e5fb);
+	    	border-radius:.44rem;
+	    	color:@white;font-size:.25rem;margin:.37rem auto 0;padding:.09rem 0;width:1.6rem;
+	    }
+	    .yearrate{
+	    	border-bottom:0.02rem solid #dcdcdc;margin:0 auto;position:relative;width:3.2rem;
+	        .ratenum{
+	        	font-size:.37rem;font-family:'Vrinda';
+	        	// font-family:'Agency FB';
+	        	i{font-size:.86rem;margin-left:.1rem;}
+	        }
+	        .jiaxi{color:@pink;font-size:.36rem;position:absolute;top:0.25rem;right:0}
+	    }
+	    .earnings{
+	    	font-size:.27rem;color:@gray;line-height:.5rem;margin-top:.1rem;
+	        strong{color:@pink;font-weight:normal;font-size:.35rem;}
+	    }	
+    }   
+}
+.container{background:#f6d991;padding:.25rem 0}
+.tzpanle{
+	background-color:@white;border-radius:.18rem;margin:0 auto;padding:.38rem 0;position:relative;width:7.1rem;
+    .arrow-up{border-bottom:.2rem solid #5fd1fa;border-left:.16rem solid transparent;border-right:.16rem solid transparent;height:0;margin:0 auto;width:0;}
+    .iwilldo{color:@orange;font-size:.27rem;text-align:@center;margin:.1rem 0;}
+    .tzquota{
+    	border-bottom:0.02rem dashed @gray;width:2.8rem;margin:0 auto;position:relative;padding-bottom:.1rem;
+	    input[type='number']{
+	    	font-size:.67rem;color:@orange;display:block;
+	    	line-height:.8rem; text-align:@center;width:100%;
+	    }
+	    i{background:url(../img/edit.png) no-repeat;background-size:100% auto;display:inline-block;height:.28rem;position:absolute;top:-0.1rem;right:0;width:.3rem;}
+    }
+    .myreserve{
+        background:url(../img/reserve.png) no-repeat;background-size:cover;color:@white;font-size:.31rem;text-align:right;
+    	height:1.35rem;position:absolute;top:.19rem;right:.18rem;padding-right:.23rem;padding-top:.07rem;width:1.1rem;
+    }
+    .record {
+    	border-radius:.64rem;border:1px solid #c9c9c9;color:#2a2a29;font-size:.24rem;height:.64rem;
+    	line-height:.64rem;margin:.35rem auto 0;text-align:@center;width:2.09rem;
+    	span{font-size:.43rem;}
+
+    }
+    .all {width:100%;overflow-x:hidden;margin:0 auto;padding-bottom:.4rem;position: relative;overflow:visible;-webkit-transform: translateZ(0);}
+    #Scaleplate{display: block}
+    #storemoney{font-size:.36rem;line-height:.85rem;}
+    .pre_user{color:#9f9f9f;font-size:.26rem;text-align:@center;display:none;}
+    .hadlogin{display:block;}
+}
+.btnbg{background:url(../img/btnbg.png) no-repeat;background-size:100% auto;color:@white;height:1.13rem;letter-spacing:0.02rem;margin:0 auto;text-align:@center;width:6.03rem;}
+
+//登录预约面板
+.loginpanel,.reservepanel,.confirmpanel,.myreservepanel,.synopsispanel{
+	display:-webkit-flex;display:-webkit-box;display: flex;justify-content:center;align-items:@center;
+	background:rgba(16,16,15,0.6);height:100%;left:100%;position:fixed;top:0;width:100%;z-index:5;
+	-moz-transition:left 0.2s;
+	-webkit-transition:left 0.2s;
+	-o-transition:left 0.2s;
+	-ms-transition:left 0.2s;
+	transition:left 0.2s;
+}
+.loginbox{
+	background:rgba(254,168,3,0.85);box-shadow:0 0 0 0.05rem rgba(255,255,255,0.4);position:relative;width:6.92rem;
+	.ctitle{color:#fff;font-size:.43rem;margin:.36rem 0 .36rem;text-align:@center;}
+	form[name='login']{
+		border:.05rem solid #ebba59;border-radius:0.04rem;height:1.96rem;margin:0 auto;width:5.84rem;
+		input{
+			background-color:#fae2b1;background-repeat:no-repeat; background-size:.39rem .39rem; background-position:.22rem center;
+			height:.96rem;padding-left:.84rem;font-size:.3rem;display:block;width:5rem;
+		}
+        input[name='username']{background-image:url(../img/name-icon.png);margin-bottom:.04rem;}
+        input[name='userpsd']{background-image:url(../img/psd-icon.png);}
+	}
+	.confirmgo{background-color:#2c99ff;border-radius:.05rem;color:#fff;display:block;font-size:.32rem;height:.92rem;line-height:.91rem;margin:.28rem auto .64rem;text-align:@center;width:5.93rem;}
+}
+.yuyuebox{
+	background-color:@white;margin:0 auto;width:7rem;padding-bottom:.1rem;
+	.yuyuetit{
+		background:-moz-linear-gradient(top,#de95f9,#8d63f6);
+	    background:-webkit-linear-gradient(top,#de95f9,#8d63f6);
+	    background:linear-gradient(top,#de95f9,#8d63f6);
+		height:.84rem;position:relative;
+		span{border:1px solid @white;border-radius:0.03rem;color:@white;display:inline-block;font-size:.28rem;left:.25rem;padding:.1rem;position:absolute;top:.18rem;line-height:.28rem}
+	}
+	.parameter{
+		border-bottom:1px solid @lightgrey;height:1.72rem;
+		dl{
+			float:left;height:1.25rem;margin-top:.25rem;padding:0 .27rem 0 .24rem;width:2.97rem;
+		}
+		dl:first-child{border-right:1px solid @lightgrey;}
+		dl dt{font-size:.24rem;color:@sgray;margin-top:-0.05rem;}
+		dl dd{
+			color:@black;text-align:right;font-size:.26rem;margin-top:0.15rem;
+			span{font-size:.56rem;}
+			i{color:#eb4940;vertical-align:top;}
+		}
+	}
+	.income{
+		border-bottom:1px dashed @lightgrey;font-size:.28rem;height:.75rem;padding:.35rem 0;text-align:right;
+		dl:last-child{margin-top:.1rem;}
+		dt{color:@sgray;float:left;padding-right:.1rem;width:3.25rem;}
+		dd{color:@black;width:2rem;float:left;}
+	}
+	.yytime{color:@sgray;font-size:.26rem;margin:.2rem 0;padding-right:.15rem; text-align:right;}
+	.yytime time{color:@black;}
+}
+.reservebox{
+	background-color:@white;border-radius:.2rem;margin:0 auto;position:relative;width:6.68rem;
+	img{height:2.31rem;margin:.75rem auto .05rem;width:2.27rem;}
+	p{text-align:@center;}
+	.succmsg{color:#646464;font-size:.36rem;}   
+}
+.prompt{color:#ffa10c;font-size:.26rem;margin:.4rem 0 .3rem;text-align:@center;}
+.lookover{font-size:.32rem;line-height:.9rem;margin-bottom:.2rem;}
+.close{
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	transform:rotate(45deg);
+	color:@white;cursor:pointer;font-size:.72rem;position:absolute;right:.1rem;top:-0.1rem;
+}
+.reservebox .close,.synopsis .close{color:#979797;}
+.myreservepanel .overbox{
+	height:9.5rem;overflow-y:scroll;overflow-x:hidden;
+	.yuyuebox{margin-bottom:.25rem;}
+	.yuyuebox:last-child{margin-bottom:0;}
+}
+.synopsis{
+	background-color:@white;border-radius:.2rem;height:9rem;overflow-y:scroll;overflow-x:hidden;margin:.66rem auto;padding:.5rem .38rem;position:relative;width:6.24rem;
+    img.synoptit{margin:0 auto;width:3.72rem}
+    .synopinfo{font-size:.26rem;color:#767676;line-height:.45rem;margin:.3rem 0 .2rem; text-align:justify;}
+    .summarypic02,.summarypic03{margin:.1rem 0}
+    .pinfo{color:#865400;font-size:.23rem;line-height:.4rem;}
+    .actbq{color:#565655;font-size:.24rem;text-align:right;line-height:.45rem;margin-top:.3rem}
+}
+
+.showthis{
+	left:0;
+	-moz-transition:left 0.2s;
+	-webkit-transition:left 0.2s;
+	-o-transition:left 0.2s;
+	-ms-transition:left 0.2s;
+	transition:left 0.2s;
+}

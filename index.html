@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>刻度尺</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript" src='js/main.js'></script>
+    <style>
+		*{margin:0px;padding:0px;}
+		.curval{width:2rem;border-radius:.65rem;border:1px solid #f00;color:#f00;font-size:.4rem;height:.65rem;line-height:.64rem;margin:.5rem auto 0;text-align:center;}
+		.all{width:7.1rem;/* height:50px;*/overflow-x:hidden;margin:0 auto;}
+		#Scaleplate{display: block}       
+    </style>
+</head>
+<body>
+    <div class='curval'>360</div>
+	<div class="all" id="box">
+    	
+    </div>
+</body>
+<script type="text/javascript">
+	function HtmlFont(pagewidth){
+		var oWidth = document.documentElement.clientWidth || document.body.clientWidth,
+		    obHtml = document.getElementsByTagName('html')[0];
+		oWidth = Math.min(pagewidth,oWidth);    
+		var FontSize = (oWidth/pagewidth)*100;
+		obHtml.style.fontSize = FontSize+'px';
+	}
+	HtmlFont(750);
+
+	Scaleplate(
+		{
+	        container : 'box',
+	        width : document.getElementById('box').offsetWidth,
+	        height : 50,
+	        start : 360,
+	        end : 10,
+	        def : 360,
+	        unit : 6.3,
+	        linecolor : '#f00',
+	        scaleplate : {
+
+	        }
+		},
+		over
+	);
+	function over(now){
+		console.log(now);
+		document.querySelector('.curval').innerText = now;
+	}
+	window.onresize = function(){
+		HtmlFont(750);
+        var CanvasNode = document.getElementById('Scaleplate');
+        CanvasNode.parentNode.removeChild(CanvasNode);
+        Scaleplate(
+			{
+		        container : 'box',
+		        width : document.getElementById('box').offsetWidth,
+		        height : 50,
+		        start : 360,
+		        end : 10,
+		        def : 360,
+		        unit : 6.3,
+		        linecolor : '#f00',
+		        scaleplate : {
+
+		        }
+			},
+			over
+		);
+	}
+</script>
+</html>
