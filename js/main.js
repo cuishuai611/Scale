@@ -33,6 +33,9 @@ function Scaleplate(c){
     c.background = c.background==undefined ? '#fff' : c.background; //画布背景色，默认白色
     c.linecolor = c.linecolor==undefined ? '#000' : c.linecolor;    //中心线颜色，默认黑色 
     var outerArguments = arguments;
+	if(outerArguments[1] != undefined && typeof(outerArguments[1]) == 'function'){
+       outerArguments[1](c.def);
+    }
     var box = document.getElementById(c.container);
     var canvas = document.createElement('canvas');
     canvas.id = 'Scaleplate';
@@ -42,10 +45,9 @@ function Scaleplate(c){
     if(canvas.getContext){    //简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
     	var Scanvas = document.createElement('canvas'); //创建刻度画布
     	Scanvas.height = c.height;
-    	var mid,reverse = false; 
+    	var mid; 
     	if(c.end < c.start){ 
             mid = c.end; c.end = c.start; c.start = mid;
-            reverse = true; //当开始值与结束值重新对换时，控制reverse为ture
     	}
     	c.end++;
     	mid = c.end - c.start;//取值范围    	
@@ -129,16 +131,18 @@ function Scaleplate(c){
             moveDistance = nowx - x;
             x = nowx;
             defX += moveDistance;
+			console.log(defX);
             now = (Math.floor(c.width/2)-defX-space)*capacity/c.unit + c.start;//获取当前刻度值
             now = Math.round(now);
+			console.log(defX);
             if((now<c.start) || now>(c.end-1)){  //判断临界值情况
 				if (now<c.start) { 
 					now = c.start; 
-					defX = reverse == false ? Math.floor(c.width/2)-((c.def-c.start)*capacity*c.unit+space) : Math.floor(c.width/2)-((c.end-1-c.def)*capacity*c.unit+space)
+					defX = Math.floor(c.width/2)- space;
 				}
 				if (now>(c.end-1)) { 
 					now = c.end-1; 
-					defX = reverse == false ? Math.floor(c.width/2)-((c.end-1-c.def)*capacity*c.unit+space) : Math.floor(c.width/2)-((c.def-c.start)*capacity*c.unit+space)
+					defX = Math.floor(c.width/2)-((c.end-1-c.start)*capacity*c.unit+space);
 				}
 			}
             drawImg(img,Math.floor(c.width/2)-((now-c.start)*c.unit/capacity+space),0);
