@@ -30,7 +30,7 @@
 				<input type="number" name="tzquota" value='10000'><i></i>
 			</div>
 			<div class="myreserve">0</div>
-			<div class="record"><span class="red" id="red">10</span>天</div>
+			<div class="record"><span class="red" id="red"></span>天</div>
 			<div class="all" id="box"></div>
 			<div id='storemoney' class='btnbg'>立即投资</div>
 			<p class='pre_user'><span>135****2399</span>,已登录</p>
@@ -167,39 +167,42 @@
 			}
 		},
 		over
-	);
-
-	var ShowVale = document.getElementById('red'),
-        RateNum = document.querySelector('.ratenum').getElementsByTagName('i')[0],
-        RateJia = document.querySelector('.jiaxi'),
-        GainNum = document.querySelector('.earnings').getElementsByTagName('strong')[0],
-        tzinput = document.getElementsByName('tzquota')[0],
-        Mygain = 0, MyRate = 8, MyJiaxi = 0, BenJin = tzinput.value;
-    tzinput.onkeyup = function(){
-    	BenJin = tzinput.value;
-    	over(Number(ShowVale.innerText));console.log(BenJin);
+	); 
+        
+    var Tzinp = document.getElementsByName('tzquota')[0];    
+    Tzinp.onkeyup = function(){
+    	var BenJin = this.value,
+    	    ShowVale = document.getElementById('red');
+    	over(Number(ShowVale.innerText),BenJin);
     }
-    var ConArr = [
-            [10, 0.5, 6, 0],
-            [30, 0.3, 7, 1],
-            [60, 0.3, 8, 1],
-            [90, 0.1, 9, 1],
-            [180, 0.1, 10, 1],
-            [360, 0, 12, 1]
-        ];
+    
 
-	function over(now){
-		// console.log(now);
+	function over(now,b,r,j){
+		console.log(now);
+		var ShowVale = document.getElementById('red'),
+		    RateNum = document.querySelector('.ratenum').getElementsByTagName('i')[0],
+		    RateJia = document.querySelector('.jiaxi'),
+		    GainNum = document.querySelector('.earnings').getElementsByTagName('strong')[0],
+		    tzinput = document.getElementsByName('tzquota')[0],
+		    b = tzinput.value,
+		    ConArr = [
+	            [10, 0.5, 6, 0],
+	            [30, 0.3, 7, 1],
+	            [60, 0.3, 8, 1],
+	            [90, 0.1, 9, 1],
+	            [180, 0.1, 10, 1],
+	            [360, 0, 12, 1]
+	        ];
 	    ShowVale.innerText = now;
     	for(var i=0; i<ConArr.length; i++){
         	if(now >= ConArr[i][0] ){
-        		MyRate = ConArr[i][2];
-        		MyJiaxi = Math.floor((now-ConArr[i][0])/10)*ConArr[i][1]+ConArr[i][3];
+        		r = ConArr[i][2];
+        		j = Math.floor((now-ConArr[i][0])/10)*ConArr[i][1]+ConArr[i][3];
         	}
         }
-        RateNum.innerText = MyRate>=10 ? MyRate+'.0' : MyRate+'.00';
-	    RateJia.innerText = '+'+MyJiaxi.toFixed(2)+'%';
-        GainNum.innerText = (BenJin/365*now*(MyRate+MyJiaxi)/100).toFixed(2);
+        RateNum.innerText = r>=10 ? r+'.0' : r+'.00';
+	    RateJia.innerText = '+'+j.toFixed(2)+'%';
+        GainNum.innerText = (b/365*now*(r+j)/100).toFixed(2);
 	}
 </script>
 </html>
