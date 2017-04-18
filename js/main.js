@@ -21,7 +21,7 @@
 function Scaleplate(c){
     if(c.container == undefined){
     	console.log('请设置元素id');return;
-    }
+    };
     if(c.scaleplate == undefined) { c.scaleplate={}; };
     if(c.scaleplate.color == undefined) { c.scaleplate.color = '#f00';};                 //刻度颜色
     if(c.scaleplate.width == undefined) { c.scaleplate.width = 1;};                      //刻度宽度
@@ -131,7 +131,6 @@ function Scaleplate(c){
             moveDistance = nowx - x;
             x = nowx;
             defX += moveDistance;
-			console.log(defX);
             now = (Math.floor(c.width/2)-defX-space)*capacity/c.unit + c.start;//获取当前刻度值
             now = Math.round(now);
 			console.log(defX);
