@@ -1,6 +1,6 @@
 #移动端Scale刻度尺JavaScript源生canvas渲染插件
 
-在线演示地址：http://cs.usmouse.com/git/Scale/
+在线演示地址：http://www.0317news.cn/git/Scale/
 
 author: Mr Cui（QQ：764028466）
 
