@@ -133,7 +133,6 @@ function Scaleplate(c){
             defX += moveDistance;
             now = (Math.floor(c.width/2)-defX-space)*capacity/c.unit + c.start;//获取当前刻度值
             now = Math.round(now);
-			console.log(defX);
             if((now<c.start) || now>(c.end-1)){  //判断临界值情况
 				if (now<c.start) { 
 					now = c.start; 
